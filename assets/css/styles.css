@@ -1,0 +1,128 @@
+/* Estils Generals */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Color de fons suau */
+    color: #333;
+}
+
+/* 1. Contenidor Principal Flexbox */
+.flex-container {
+    /* Defineix el context Flexbox */
+    display: flex; 
+    /* Col·loca els ítems en una columna per defecte (disseny mòbil) */
+    flex-direction: column; 
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el contenidor a la pàgina */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* 2. Capçalera (Header) */
+.header-class {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-class h1 {
+    margin: 0 0 10px 0;
+}
+
+/* 3. Navegació (Nav) */
+.nav-class {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.nav-class ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Flexbox per als ítems del menú */
+    justify-content: center; /* Centra els enllaços */
+}
+
+.nav-class li {
+    margin: 0 15px;
+}
+
+.nav-class a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-class a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* 4. Contingut Principal i Barra Lateral (Main i Aside) */
+
+/* Contenidor per al main i l'aside (útil en disseny de columna) */
+.flex-container > aside,
+.flex-container > main {
+    padding: 20px;
+}
+
+/* 5. Estils de Secció */
+main section {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+main section:last-child {
+    border-bottom: none;
+}
+
+/* 6. Barra Lateral (Aside) */
+aside {
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    margin: 20px;
+    padding: 15px;
+}
+
+/* 7. Estils Responsive amb Media Queries */
+
+/* Quan la pantalla és més ampla (tablets i escriptori), canviem a disseny de files */
+@media (min-width: 768px) {
+    
+    /* El contenidor principal es reestructura per tenir dues columnes */
+    .flex-container {
+        /* Eliminem la direcció de columna per defecte i afegim contenidor per Main/Aside */
+        display: grid;
+        grid-template-areas: 
+            "header header"
+            "nav nav"
+            "main aside";
+        grid-template-columns: 3fr 1fr; /* Main ocuparà 3/4 i Aside 1/4 */
+    }
+
+    /* Assignació d'àrees */
+    .header-class {
+        grid-area: header;
+    }
+
+    .nav-class {
+        grid-area: nav;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    aside {
+        grid-area: aside;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+}
