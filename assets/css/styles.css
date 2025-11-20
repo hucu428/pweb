@@ -1,128 +1,183 @@
-/* Estils Generals */
+/* ==================================================== */
+/* 1. Estils Generals i Resets */
+/* ==================================================== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9; /* Color de fons suau */
-    color: #333;
+    background-color: #1a1a2e; /* Fons fosc */
+    color: #e4e4e4;
+    line-height: 1.6;
 }
 
-/* 1. Contenidor Principal Flexbox */
+h1, h2, h3 {
+    color: #ff416c; /* Color de detall */
+    margin-top: 0;
+}
+
+a {
+    color: #00bfff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4ddbff;
+}
+
+/* El contenidor global de layout (només per a main i aside) */
 .flex-container {
-    /* Defineix el context Flexbox */
-    display: flex; 
-    /* Col·loca els ítems en una columna per defecte (disseny mòbil) */
-    flex-direction: column; 
     max-width: 1200px;
-    margin: 0 auto; /* Centrar el contenidor a la pàgina */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #0f0f2a;
+    min-height: 100vh; /* Assegura que el fons sigui visible */
 }
 
-/* 2. Capçalera (Header) */
+/* ==================================================== */
+/* 2. Capçalera del Document (Header) */
+/* ==================================================== */
 .header-class {
-    background-color: #007bff;
-    color: white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Imatge de Fons */
+    background-image: url('../img/logo_novagami_background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    
+    min-height: 200px; /* Reduïm lleugerament per deixar espai al nav */
     padding: 20px;
-    text-align: center;
+    position: relative; 
+    z-index: 1; 
+    border-bottom: 3px solid #ff416c;
+}
+
+/* Overlay Semitransparent */
+.header-class::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
 .header-class h1 {
-    margin: 0 0 10px 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    margin: 0;
+    padding: 10px 0;
 }
 
-/* 3. Navegació (Nav) */
+/* ==================================================== */
+/* 3. Navegació del Document (Nav) - Mobile-First */
+/* ==================================================== */
 .nav-class {
     background-color: #333;
     padding: 10px 0;
+    /* Assegurem que la nav s'estén a tota l'amplada de la pàgina */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .nav-class ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex; /* Flexbox per als ítems del menú */
-    justify-content: center; /* Centra els enllaços */
+    margin: 0 auto;
+    display: flex; 
+    flex-direction: column; 
+    text-align: center;
+    max-width: 1200px; /* Limitem l'amplada de la llista */
 }
 
-.nav-class li {
-    margin: 0 15px;
-}
-
-.nav-class a {
+.nav-class li a {
+    display: block;
+    padding: 10px;
     color: white;
-    text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
     transition: background-color 0.3s;
 }
 
-.nav-class a:hover {
-    background-color: #555;
-    border-radius: 5px;
+.nav-class li a:hover {
+    background-color: #ff416c;
 }
 
-/* 4. Contingut Principal i Barra Lateral (Main i Aside) */
-
-/* Contenidor per al main i l'aside (útil en disseny de columna) */
-.flex-container > aside,
-.flex-container > main {
+/* ==================================================== */
+/* 4. Contingut Principal (Main) i Barra Lateral (Aside) */
+/* ==================================================== */
+main {
     padding: 20px;
+    box-sizing: border-box;
 }
 
-/* 5. Estils de Secció */
 main section {
     margin-bottom: 30px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #3a3a5e;
 }
 
-main section:last-child {
-    border-bottom: none;
-}
-
-/* 6. Barra Lateral (Aside) */
 aside {
-    background-color: #e9ecef;
-    border-left: 5px solid #007bff;
-    margin: 20px;
     padding: 15px;
+    background-color: #2a2a4a;
+    border-left: 5px solid #00bfff;
+    margin: 20px; /* Marge en mòbils */
+    box-sizing: border-box;
 }
 
-/* 7. Estils Responsive amb Media Queries */
+/* ==================================================== */
+/* 5. Peu de Pàgina del Document (Footer) */
+/* ==================================================== */
+.main-footer {
+    background-color: #0f0f2a;
+    color: #aaa;
+    text-align: center;
+    padding: 15px;
+    /* El footer s'estén sota el flex-container */
+    width: 100%; 
+    border-top: 3px solid #ff416c;
+}
 
-/* Quan la pantalla és més ampla (tablets i escriptori), canviem a disseny de files */
+/* ==================================================== */
+/* 6. Media Query per a Responsive (Escriptori) */
+/* ==================================================== */
 @media (min-width: 768px) {
     
-    /* El contenidor principal es reestructura per tenir dues columnes */
+    /* Navegació en fila */
+    .nav-class ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .nav-class li {
+        margin: 0 15px;
+    }
+    
+    /* Disposició del contenidor principal (sols main i aside) amb Grid */
     .flex-container {
-        /* Eliminem la direcció de columna per defecte i afegim contenidor per Main/Aside */
         display: grid;
+        /* Utilitzem el layout Grid per a la zona de contingut */
         grid-template-areas: 
-            "header header"
-            "nav nav"
             "main aside";
-        grid-template-columns: 3fr 1fr; /* Main ocuparà 3/4 i Aside 1/4 */
-    }
-
-    /* Assignació d'àrees */
-    .header-class {
-        grid-area: header;
-    }
-
-    .nav-class {
-        grid-area: nav;
+        grid-template-columns: 3fr 1fr;
+        gap: 30px;
+        /* Padding dels costats del contenidor */
+        padding: 0 30px; 
     }
 
     main {
         grid-area: main;
+        padding: 30px 0; /* Padding superior/inferior, 0 lateral (ja cobert pel contenidor) */
     }
 
     aside {
         grid-area: aside;
-        margin-top: 0;
-        margin-right: 0;
-        margin-bottom: 0;
+        margin: 30px 0; /* Marges superiors/inferiors, 0 lateral (ja cobert pel contenidor) */
+        height: fit-content;
     }
 }

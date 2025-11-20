@@ -4,43 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Pagina Web</title>
+    <title>NovaGami Studios | Estructura Semàntica Pura</title>
 </head>
 <body>
-    <section class="flex-container">
-        <header class="header-class">
-            <h1>NovaGami Studios</h1>
-        </header>
-        <nav class="nav-class">
-            <ul>
-                <li><a href="#inici">Inici</a></li>
-                <li><a href="#sobre-nosaltres">Sobre Nosaltres</a></li>
-                <li><a href="#serveis">Serveis</a></li>
-                <li><a href="#contacte">Contacte</a></li>
-            </ul>
-        </nav>
+    
+    <header class="header-class">
+        <h1>NovaGami Studios</h1>
+    </header>
+    
+    <nav class="nav-class">
+        <ul>
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="sobre_nosaltres.html">L'Estudi</a></li>
+            <li><a href="cataleg.html">Serveis</a></li>
+            <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+    </nav>
+    
+    <div class="flex-container">
+        
         <aside>
             <h2>Notícies Recents</h2>
             <p>Aquí trobaràs les últimes notícies i actualitzacions.</p>
         </aside>
+        
         <main>
+            
             <section id="inici">
                 <h2>Inici</h2>
-                <p>Aquesta és la secció d'inici de la pàgina web.</p>
+                <article>
+                    <header>
+                        <h3>Notícia Destacada</h3> 
+                    </header>
+                    <figure>
+                        [Contingut <img src="..."]
+                    </figure>
+                    <p>Aquesta és la secció d'inici amb un article principal.</p>
+                    <footer>
+                        <p>Publicat el 20/11/2025</p>
+                    </footer>
+                </article>
             </section>
+            
             <section id="sobre-nosaltres">
                 <h2>Sobre Nosaltres</h2>
                 <p>Informació sobre la nostra empresa i el nostre equip.</p>
             </section>
+            
             <section id="serveis">
                 <h2>Serveis</h2>
                 <p>Detalls dels serveis que oferim als nostres clients.</p>
             </section>
+            
             <section id="contacte">
                 <h2>Contacte</h2>
                 <p>Com posar-se en contacte amb nosaltres.</p>
             </section>
+            
         </main>
-    </section>
+        
+    </div> <footer class="main-footer">
+        <p>&copy; 2025 NovaGami Studios. Tots els drets reservats.</p>
+    </footer>
+    
 </body>
 </html>
