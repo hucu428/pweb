@@ -130,6 +130,23 @@ aside {
     box-sizing: border-box;
 }
 
+/* Estils per a imatges (ja existents) */
+.key-art-img, .small-img {
+    max-width: 100%; /* Assegura que no desbordarà el seu contenidor */
+    height: auto;    /* Manté la proporció */
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #3a3a5e;
+}
+
+/* ESTILS ESPECÍFICS per a .small-img */
+.small-img {
+    max-width: 300px; /* Aquí especifiques l'amplada màxima desitjada */
+    /* L'altura ja es mantindrà automàticament gràcies a height: auto; */
+    border-radius: 8px; /* Opcional: cantonades arrodonides per a un toc suau */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Opcional: una petita ombra */
+}
+
 /* ==================================================== */
 /* 5. Peu de Pàgina del Document (Footer) */
 /* ==================================================== */
