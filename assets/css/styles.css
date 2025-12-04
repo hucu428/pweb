@@ -185,42 +185,69 @@ aside {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* ... (El teu codi CSS anterior de les seccions 1, 2, 3, 4.x) ... */
+
 /* ==================================================== */
 /* 4.7. Estils del Formulari de Contacte */
 /* ==================================================== */
 
-/* Estil per als camps del formulari (Input, Select, Textarea) */
+/* Layout per a Prefix i Telèfon */
+.phone-group {
+    display: flex;
+    gap: 10px; /* Espai entre el selector i el camp de text */
+    margin-bottom: 15px;
+}
+
+/* El selector de prefix té una amplada fixa */
+.phone-group .phone-prefix {
+    flex-basis: 120px; 
+    flex-shrink: 0;
+}
+
+/* El camp de número de telèfon agafa la resta de l'espai */
+.phone-group .phone-number {
+    flex-grow: 1;
+}
+
+/* Estil per a tots els camps del formulari (Input, Select, Textarea) */
 #formulari-contacte input[type="text"],
 #formulari-contacte input[type="email"],
 #formulari-contacte input[type="tel"],
-#formulari-contacte select,
+#formulari-contacte select, /* <-- S'APLICA AL SELECTOR DE PREFIX */
 #formulari-contacte textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #3a3a5e; /* Vora subtil */
-    background-color: #1a1a2e; /* Fons del camp més fosc */
+    border: 1px solid #3a3a5e;
+    background-color: #1a1a2e;
     color: #e4e4e4;
-    box-sizing: border-box; /* Per incloure padding i vora dins de l'amplada */
+    box-sizing: border-box;
     border-radius: 4px;
 }
 
-/* Agrupació dels camps */
+/* Redefinim el marge inferior només per a elements que no estiguin al phone-group */
+.form-group:not(.phone-group) input, 
+.form-group:not(.phone-group) select, 
+.form-group:not(.phone-group) textarea {
+    margin-bottom: 15px;
+}
+
+/* ... (La resta de fieldset i botons) ... */
+
 #formulari-contacte fieldset {
-    border: 1px solid #ff416c; /* Vora amb color de detall */
+    border: 1px solid #ff416c;
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 5px;
 }
 
 #formulari-contacte legend {
-    color: #00bfff; /* Color neó per a la llegenda */
+    color: #00bfff;
     font-weight: bold;
     padding: 0 10px;
 }
 
-/* Estil del botó */
 #formulari-contacte button[type="submit"] {
     background-color: #ff416c;
     color: white;
@@ -236,6 +263,8 @@ aside {
 #formulari-contacte button[type="submit"]:hover {
     background-color: #e62c52;
 }
+
+/* ... (El teu codi CSS de la secció 5 i 6) ... */
 
 /* ==================================================== */
 /* 5. Peu de Pàgina del Document (Footer) */
