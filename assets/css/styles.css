@@ -2,27 +2,36 @@
 /* 1. Estils Generals i Resets */
 /* ==================================================== */
 body {
-    font-family: Arial, sans-serif;
+    /* Font: una opció moderna i 'gaming' */
+    font-family: 'Rajdhani', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #1a1a2e; /* Fons fosc */
     color: #e4e4e4;
-    line-height: 1.6;
+    line-height: 1.7; /* Lleuger augment per a millor lectura */
 }
 
 h1, h2, h3 {
-    color: #ff416c; /* Color de detall */
+    color: #ff416c; /* Color de detall primari */
     margin-top: 0;
+    text-transform: uppercase; /* Toque "gaming" */
+    letter-spacing: 1px;
 }
 
 a {
     color: #00bfff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 a:hover {
     color: #4ddbff;
+    text-shadow: 0 0 5px #00bfff; /* Efecte 'neó' subtil */
+}
+
+a:focus { /* Millora d'accessibilitat */
+    outline: 2px solid #ff416c;
+    outline-offset: 2px;
 }
 
 /* El contenidor global de layout (només per a main i aside) */
@@ -30,7 +39,8 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
     background-color: #0f0f2a;
-    min-height: 100vh; /* Assegura que el fons sigui visible */
+    min-height: 100vh;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Ombra de bloc, dona profunditat */
 }
 
 /* ==================================================== */
@@ -42,20 +52,19 @@ a:hover {
     justify-content: center;
     align-items: center;
     
-    /* Imatge de Fons */
     background-image: url('../img/logo_novagami_background.png'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     
-    min-height: 200px; /* Reduïm lleugerament per deixar espai al nav */
+    min-height: 250px; /* Incrementat lleugerament per impacte */
     padding: 20px;
     position: relative; 
     z-index: 1; 
-    border-bottom: 3px solid #ff416c;
+    border-bottom: 5px solid #ff416c; /* Més gruixut */
 }
 
-/* Overlay Semitransparent */
+/* Overlay Semitransparent (Color més fosc i opacitat) */
 .header-class::before {
     content: "";
     position: absolute;
@@ -63,13 +72,14 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.75); /* Opacitat augmentada */
     z-index: -1;
 }
 
 .header-class h1 {
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 0 10px #ff416c, 0 0 20px rgba(255, 65, 108, 0.5); /* Efecte Neó H1 */
+    font-size: 3em;
     z-index: 2;
     margin: 0;
     padding: 10px 0;
@@ -79,11 +89,11 @@ a:hover {
 /* 3. Navegació del Document (Nav) - Mobile-First */
 /* ==================================================== */
 .nav-class {
-    background-color: #333;
-    padding: 10px 0;
-    /* Assegurem que la nav s'estén a tota l'amplada de la pàgina */
+    background-color: #0d0d24; /* Més fosc que el fons del contenidor */
+    padding: 0; /* Ajustat a 0 per controlar el padding a l'enllaç */
     width: 100%; 
     box-sizing: border-box; 
+    border-bottom: 2px solid #00bfff; /* Detall neó a la part inferior */
 }
 
 .nav-class ul {
@@ -93,19 +103,23 @@ a:hover {
     display: flex; 
     flex-direction: column; 
     text-align: center;
-    max-width: 1200px; /* Limitem l'amplada de la llista */
+    max-width: 1200px; 
 }
 
 .nav-class li a {
     display: block;
-    padding: 10px;
+    padding: 15px 10px; /* Més espai vertical */
     color: white;
     font-weight: bold;
-    transition: background-color 0.3s;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.nav-class li a:hover {
+.nav-class li a:hover,
+.nav-class li a:focus { /* Afegit focus */
     background-color: #ff416c;
+    color: #1a1a2e; /* Text fosc a l'hover per contrast */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* ==================================================== */
@@ -117,47 +131,126 @@ main {
 }
 
 main section {
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #3a3a5e;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #3a3a5e; /* Línia més gruixuda */
 }
 
 aside {
-    padding: 15px;
+    padding: 20px; /* Més padding */
     background-color: #2a2a4a;
     border-left: 5px solid #00bfff;
-    margin: 20px; /* Marge en mòbils */
+    margin: 20px; 
     box-sizing: border-box;
+    border-radius: 5px; /* Cantonades arrodonides per a la barra lateral */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3); /* Ombra amb color neó de detall */
 }
 
-/* Estils per a imatges (ja existents) */
+/* Estils per a imatges */
 .key-art-img, .small-img {
-    max-width: 100%; /* Assegura que no desbordarà el seu contenidor */
-    height: auto;    /* Manté la proporció */
+    max-width: 100%; 
+    height: auto;
     display: block;
     margin: 20px auto;
-    border: 2px solid #3a3a5e;
+    border: 2px solid #ff416c; /* Marc de color de detall */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Ombra més pronunciada */
 }
 
-/* ESTILS ESPECÍFICS per a .small-img */
+/* ESTILS ESPECÍFICS per a .small-img (Centrat) */
 .small-img {
-    max-width: 300px; /* Aquí especifiques l'amplada màxima desitjada */
-    /* L'altura ja es mantindrà automàticament gràcies a height: auto; */
-    border-radius: 8px; /* Opcional: cantonades arrodonides per a un toc suau */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Opcional: una petita ombra */
+    max-width: 300px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 5px #00bfff; /* Ombra fosca + toc neó */
+}
+
+/* ==================================================== */
+/* 4.6. Estils Específics per a Vídeos (IFRAME/FIGURE) */
+/* ==================================================== */
+
+/* Estil del contenidor FIGURE (Per al vídeo + llegenda) */
+.service-item figure {
+    margin: 20px 0;
+    padding: 0;
+    text-align: center; /* Centra el vídeo si no ocupa el 100% */
+}
+
+/* Regla CLAU: Assegura la mida de l'iframe en escriptori */
+.service-item figure iframe {
+    /* Mida màxima en escriptori */
+    width: 100%; 
+    max-width: 782px; 
+    height: 440px; /* Alçada per a resolucions grans */
+    
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================================================== */
+/* 4.7. Estils del Formulari de Contacte */
+/* ==================================================== */
+
+/* Estil per als camps del formulari (Input, Select, Textarea) */
+#formulari-contacte input[type="text"],
+#formulari-contacte input[type="email"],
+#formulari-contacte input[type="tel"],
+#formulari-contacte select,
+#formulari-contacte textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #3a3a5e; /* Vora subtil */
+    background-color: #1a1a2e; /* Fons del camp més fosc */
+    color: #e4e4e4;
+    box-sizing: border-box; /* Per incloure padding i vora dins de l'amplada */
+    border-radius: 4px;
+}
+
+/* Agrupació dels camps */
+#formulari-contacte fieldset {
+    border: 1px solid #ff416c; /* Vora amb color de detall */
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+#formulari-contacte legend {
+    color: #00bfff; /* Color neó per a la llegenda */
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Estil del botó */
+#formulari-contacte button[type="submit"] {
+    background-color: #ff416c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#formulari-contacte button[type="submit"]:hover {
+    background-color: #e62c52;
 }
 
 /* ==================================================== */
 /* 5. Peu de Pàgina del Document (Footer) */
 /* ==================================================== */
 .main-footer {
-    background-color: #0f0f2a;
-    color: #aaa;
+    background-color: #0a0a1a; /* Molt fosc */
+    color: #999;
     text-align: center;
-    padding: 15px;
-    /* El footer s'estén sota el flex-container */
+    padding: 20px;
     width: 100%; 
-    border-top: 3px solid #ff416c;
+    border-top: 5px solid #ff416c;
+}
+
+.main-footer a {
+    color: #ff416c;
 }
 
 /* ==================================================== */
@@ -168,33 +261,55 @@ aside {
     /* Navegació en fila */
     .nav-class ul {
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around; /* Distribució més uniforme */
     }
 
     .nav-class li {
-        margin: 0 15px;
+        margin: 0; /* Eliminem el marge lateral */
     }
     
     /* Disposició del contenidor principal (sols main i aside) amb Grid */
     .flex-container {
         display: grid;
-        /* Utilitzem el layout Grid per a la zona de contingut */
+        /* Utilitzem una definició Grid més explícita i moderna */
         grid-template-areas: 
             "main aside";
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: minmax(700px, 3fr) 1fr; /* Més control sobre el main */
         gap: 30px;
-        /* Padding dels costats del contenidor */
         padding: 0 30px; 
     }
 
     main {
         grid-area: main;
-        padding: 30px 0; /* Padding superior/inferior, 0 lateral (ja cobert pel contenidor) */
+        padding: 30px 0 50px 0; /* Més padding inferior */
     }
 
     aside {
         grid-area: aside;
-        margin: 30px 0; /* Marges superiors/inferiors, 0 lateral (ja cobert pel contenidor) */
+        margin: 30px 0 50px 0; 
         height: fit-content;
+    }
+}
+
+/* ==================================================== */
+/* 7. Media Query per a Responsive (MÒBILS - Mida Vídeo) */
+/* Aquesta regla s'aplica quan l'amplada de la pantalla és petita (menys de 782px) */
+/* ==================================================== */
+@media (max-width: 782px) {
+    /* Solució per mantenir la proporció 16:9 en dispositius estrets (Padding Hack) */
+    .service-item figure {
+        position: relative;
+        padding-bottom: 56.25%; /* 9 / 16 = 0.5625 (proporció 16:9) */
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .service-item figure iframe {
+        /* L'iframe ocupa tot el contenidor amb proporció */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }

@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatce - NovaGami Studios</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Contacte - NovaGami Studios</title>
+    <meta name="description" content="Formulari de contacte i dades de l'estudi.">
 </head>
 <body>
+    
+    <header class="header-class">
+        <h1>NovaGami Studios</h1>
+    </header>
+    
+    <nav class="nav-class">
+        <ul>
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="sobre_nosaltres.html">L'Estudi</a></li>
+            <li><a href="cataleg.html">Serveis</a></li>
+            <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+    </nav>
+    
+    <div class="flex-container">
+        
+        <main>
+            <section id="formulari-contacte">
+                <h2>Contacta'ns</h2>
+                <p>Si us plau, omple el formulari. Tots els camps marcats amb un asterisc (*) són obligatoris.</p>
+                
+                <form action="#" method="POST"> 
+                    
+                    <fieldset>
+                        <legend>La teva Informació *</legend>
+                        
+                        <div>
+                            <label for="nom">Nom *:</label>
+                            <input type="text" id="nom" name="nom" required placeholder="El teu nom">
+                        </div>
+                        
+                        <div>
+                            <label for="cognom">Cognom *:</label>
+                            <input type="text" id="cognom" name="cognom" required placeholder="El teu cognom">
+                        </div>
+                        
+                        <div>
+                            <label for="telefon">Telèfon *:</label>
+                            <input type="tel" id="telefon" name="telefon" required pattern="[0-9]{9}" title="Introdueix 9 dígits (sense espais)">
+                        </div>
+                        
+                        <div>
+                            <label for="email">Email *:</label>
+                            <input type="email" id="email" name="email" required placeholder="email@exemple.com">
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Tema de la Consulta *</legend>
+                        <label for="tema-cataleg">Tria un tema o servei d'interès:</label>
+                        <select id="tema-cataleg" name="tema" required>
+                            <option value="" disabled selected>— Selecciona una opció —</option> 
+                            
+                            <option value="altres">Consulta general / Altres temes</option>
+                            
+                            <optgroup label="Videojocs">
+                                <option value="joc-neverway">Neverway</option>
+                                <option value="joc-ultrakill">Ultrakill</option>
+                            </optgroup>
+                            
+                            <optgroup label="Serveis">
+                                <option value="dev-servei">Servei de Desenvolupament</option>
+                                <option value="prest-servei">Servei de Finançament (Préstec)</option>
+                                <option value="pers-servei">Desenvolupament Personalitzat</option>
+                            </optgroup>
+                        </select>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>El teu Missatge</legend>
+                        <label for="missatge">Missatge (opcional):</label>
+                        <textarea id="missatge" name="missatge" rows="6" placeholder="Detalla la teva consulta aquí..."></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <div>
+                            <input type="checkbox" id="lopd" name="accepta_lopd" required>
+                            <label for="lopd">Accepto la <a href="#" target="_blank">política de privacitat</a> *</label>
+                        </div>
+                        
+                        <button type="submit">Enviar Sol·licitud</button>
+                    </fieldset>
+                    
+                </form>
+            </section>
+        </main>
+        
+        <aside>
+            <h2>Ubicació i Horaris</h2>
+            <p><strong>Adreça:</strong> [Carrer, Ciutat]</p>
+            <p><strong>Horari:</strong> De 9:00h a 18:00h (Dilluns a Divendres).</p>
+            <p>També ens podeu trobar a les nostres xarxes socials.</p>
+        </aside>
+        
+    </div> <footer class="main-footer">
+        <p>&copy; 2025 NovaGami Studios. Tots els drets reservats.</p>
+    </footer>
     
 </body>
 </html>
