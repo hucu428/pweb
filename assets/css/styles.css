@@ -163,9 +163,9 @@ aside {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 5px #00bfff; /* Ombra fosca + toc neó */
 }
 
-/* ==================================================== */
-/* 4.6. Estils Específics per a Vídeos (IFRAME/FIGURE) */
-/* ==================================================== */
+/* ===============================================================*/
+/* 4.6. Estils Específics per a Vídeos (IFRAME/FIGURE)*/
+/* ===============================================================*/
 
 /* Estil del contenidor FIGURE (Per al vídeo + llegenda) */
 .service-item figure {
