@@ -263,8 +263,36 @@ aside {
 #formulari-contacte button[type="submit"]:hover {
     background-color: #e62c52;
 }
+/* ==================================================== */
+/* 4.8. Estils per a la Taula de Preus */
+/* ==================================================== */
+.taula-preus {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    text-align: center;
+    background-color: #1a1a2e;
+    border: 2px solid #00bfff;
+}
 
-/* ... (El teu codi CSS de la secció 5 i 6) ... */
+.taula-preus th, 
+.taula-preus td {
+    padding: 12px;
+    border: 1px solid #3a3a5e;
+}
+
+.taula-preus th {
+    background-color: #0d0d24;
+    color: #00bfff;
+    text-transform: uppercase;
+}
+
+.taula-preus td a {
+    color: #ff416c;
+    font-weight: bold;
+}
+
+
 
 /* ==================================================== */
 /* 5. Peu de Pàgina del Document (Footer) */
