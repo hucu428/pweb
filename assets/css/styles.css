@@ -370,3 +370,71 @@ aside {
         height: 100%;
     }
 }
+
+/* ==================================================== */
+/* 8. Barra de Cookies (Projecte Acadèmic) */
+/* ==================================================== */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0d0d24;
+    color: #e4e4e4;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #00bfff;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    font-size: 0.9rem;
+}
+
+.cookie-banner p {
+    margin: 0;
+    max-width: 70%;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.cookie-buttons button {
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cookie-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+#accept-cookies {
+    background-color: #ff416c;
+    color: #fff;
+}
+
+#reject-cookies {
+    background-color: #3a3a5e;
+    color: #fff;
+}
+
+/* Responsive per a mòbil */
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .cookie-banner p {
+        max-width: 100%;
+    }
+}
