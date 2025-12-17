@@ -1,20 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cookieBanner = document.getElementById("cookie-banner");
+    const banner = document.getElementById("cookie-banner");
     const acceptBtn = document.getElementById("accept-cookies");
     const rejectBtn = document.getElementById("reject-cookies");
 
-    // Si ya hay decisión, ocultamos la barra
+    // Si el banner no existe, no hacemos nada (evita romper la web)
+    if (!banner || !acceptBtn || !rejectBtn) {
+        return;
+    }
+
+    // Si ya hay decisión guardada, ocultamos la barra
     if (localStorage.getItem("cookiesDecision")) {
-        cookieBanner.style.display = "none";
+        banner.style.display = "none";
     }
 
     acceptBtn.addEventListener("click", function () {
         localStorage.setItem("cookiesDecision", "accepted");
-        cookieBanner.style.display = "none";
+        banner.style.display = "none";
     });
 
     rejectBtn.addEventListener("click", function () {
         localStorage.setItem("cookiesDecision", "rejected");
-        cookieBanner.style.display = "none";
+        banner.style.display = "none";
     });
 });
