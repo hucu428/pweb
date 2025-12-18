@@ -1,5 +1,5 @@
 /* ==================================================== */
-/* 0. Global (Arregle anti-scroll) */
+/* 0. Global */
 /* ==================================================== */
 html, body {
     width: 100%;
@@ -41,43 +41,37 @@ a:hover {
 }
 
 /* ==================================================== */
-/* 2. Contenidor Principal (Mobile-first con flex) */
+/* 2. Contenidor Principal (Flexbox) */
 /* ==================================================== */
 .flex-container {
     display: flex;
-    flex-direction: column; /* Móvil: apilado */
+    flex-direction: column; /* Móvil: uno debajo de otro */
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     gap: 20px;
     padding: 0 20px;
 }
 
-.flex-container main,
-.flex-container aside {
-    width: 100%;
-}
-
-/* Escritorio: aside a la izquierda, main a la derecha */
+/* Ajustes para Escritorio */
 @media (min-width: 768px) {
     .flex-container {
-        flex-direction: row;
-    }
-
-    .flex-container aside {
-        flex: 1;
-        order: 1;
-        margin: 0;
+        flex-direction: row; /* Uno al lado del otro */
+        align-items: flex-start;
     }
 
     .flex-container main {
-        flex: 3;
-        order: 2;
-        margin: 0;
+        flex: 3; /* 75% del ancho */
+    }
+
+    .flex-container aside {
+        flex: 1; /* 25% del ancho */
+        position: sticky; /* Se queda fijo al hacer scroll si hay mucho contenido */
+        top: 20px;
     }
 }
 
 /* ==================================================== */
-/* 3. Header */
+/* 3. Header y Nav */
 /* ==================================================== */
 .header-class {
     position: relative;
@@ -104,9 +98,6 @@ a:hover {
     text-shadow: 0 0 10px #ff416c;
 }
 
-/* ==================================================== */
-/* 4. Navegació */
-/* ==================================================== */
 .nav-class {
     background-color: #0d0d24;
     border-bottom: 2px solid #00bfff;
@@ -129,21 +120,12 @@ a:hover {
     text-align: center;
 }
 
-.nav-class a:hover {
-    background-color: #ff416c;
-    color: #1a1a2e;
-}
-
-/* Escritorio: menú horizontal */
 @media (min-width: 768px) {
-    .nav-class ul {
-        flex-direction: row;
-        justify-content: space-around;
-    }
+    .nav-class ul { flex-direction: row; justify-content: space-around; }
 }
 
 /* ==================================================== */
-/* 5. Main y Aside */
+/* 4. Main y Aside (Diseño de bloques) */
 /* ==================================================== */
 main {
     padding: 20px;
@@ -152,115 +134,54 @@ main {
 main section {
     margin-bottom: 40px;
     border-bottom: 2px dashed #3a3a5e;
+    padding-bottom: 20px;
 }
 
 aside {
     padding: 20px;
     background-color: #2a2a4a;
-    border-left: 5px solid #00bfff;
+    border-left: 5px solid #00bfff; /* Borde separador */
     border-radius: 5px;
 }
 
-/* ==================================================== */
-/* 6. Imatges i vídeos */
-/* ==================================================== */
-img, iframe, table {
-    max-width: 100%;
-    height: auto;
-}
-
-.service-item figure {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.service-item iframe {
-    width: 100%;
-    max-width: 782px;
-    height: 440px;
-    border: none;
+/* Quitar el borde en móvil para que no quede raro */
+@media (max-width: 767px) {
+    aside { border-left: none; border-top: 5px solid #00bfff; }
 }
 
 /* ==================================================== */
-/* 7. Taula Responsive */
-/* ==================================================== */
-.taula-responsive {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.taula-preus {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.taula-preus th,
-.taula-preus td {
-    padding: 12px;
-    border: 1px solid #3a3a5e;
-}
-
-.taula-preus th {
-    background-color: #0d0d24;
-    color: #00bfff;
-}
-
-@media (max-width: 768px) {
-    .taula-preus thead {
-        display: none;
-    }
-
-    .taula-preus tr,
-    .taula-preus td {
-        display: block;
-        width: 100%;
-    }
-
-    .taula-preus td {
-        padding-left: 50%;
-        position: relative;
-    }
-
-    .taula-preus td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        font-weight: bold;
-        color: #00bfff;
-    }
-}
-
-/* ==================================================== */
-/* 8. Footer */
+/* 5. Footer y Cookies */
 /* ==================================================== */
 .main-footer {
     background-color: #0a0a1a;
     color: #999;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     border-top: 5px solid #ff416c;
+    margin-top: 40px;
 }
 
-/* ==================================================== */
-/* 9. Cookie Banner */
-/* ==================================================== */
 .cookie-banner {
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0; right: 0; bottom: 0;
     background-color: #0d0d24;
     padding: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     z-index: 9999;
+    border-top: 2px solid #00bfff;
 }
 
-@media (max-width: 600px) {
-    .cookie-banner {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
+button {
+    background: #ff416c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
 }
+
+button:hover { background: #ff4b2b; }
