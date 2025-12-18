@@ -101,54 +101,66 @@
 
                 <!-- Taula de Preus i Serveis -->
                 <section id="taula-preus">
-                    <h2>Taula de Videojocs i Serveis</h2>
+                        <h2>Taula de Videojocs i Serveis</h2>
 
-                    <table class="taula-preus"aria-label="Comparativa de videojocs i serveis">
-                        <thead>
-                            <tr>
-                                <th rowspan="2">Tipus</th>
-                                <th rowspan="2">Nom</th>
-                                <th colspan="2">Preus</th>
-                                <th rowspan="2">Més informació</th>
-                            </tr>
-                            <tr>
-                                <th>Preu Base</th>
-                                <th>Extra</th>
-                            </tr>
-                        </thead>
+                        <div class="taula-responsive">
+                            <table class="taula-preus">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Tipus</th>
+                                        <th rowspan="2">Nom</th>
+                                        <th colspan="2">Preus</th>
+                                        <th rowspan="2">Contacte</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Base</th>
+                                        <th>Extres</th>
+                                    </tr>
+                                </thead>
 
-                        <tbody>
-                            <tr>
-                                <td rowspan="2">Videojoc</td>
-                                <td>Neverway</td>
-                                <td>25€</td>
-                                <td>+10€ DLC</td>
-                                <td><a href="contacte.html">Consulta extres</a></td>
-                            </tr>
-                            <tr>
-                                <td>Ultrakill</td>
-                                <td>20€</td>
-                                <td>+5€ Mode Hardcore</td>
-                                <td><a href="contacte.html">Demana més info</a></td>
-                            </tr>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Videojoc</td>
+                                        <td data-label="Nom">Neverway</td>
+                                        <td data-label="Preu Base">25€</td>
+                                        <td data-label="Extres">+10€ DLC</td>
+                                        <td data-label="Contacte">
+                                            <a href="contacte.html">Consultar</a>
+                                        </td>
+                                    </tr>
 
-                            <tr>
-                                <td rowspan="2">Servei</td>
-                                <td>Desenvolupament Personalitzat</td>
-                                <td>500€</td>
-                                <td>+150€ Documentació avançada</td>
-                                <td><a href="contacte.html">Sol·licitar pressupost</a></td>
-                            </tr>
+                                    <tr>
+                                        <td data-label="Nom">Ultrakill</td>
+                                        <td data-label="Preu Base">20€</td>
+                                        <td data-label="Extres">+5€ Mode Hardcore</td>
+                                        <td data-label="Contacte">
+                                            <a href="contacte.html">Consultar</a>
+                                        </td>
+                                    </tr>
 
-                            <tr>
-                                <td>Servei de Finançament</td>
-                                <td>100€</td>
-                                <td>+ Variable segons projecte</td>
-                                <td><a href="contacte.html">Parlar amb un assessor</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
+                                    <tr>
+                                        <td rowspan="2">Servei</td>
+                                        <td data-label="Nom">Desenvolupament Personalitzat</td>
+                                        <td data-label="Preu Base">500€</td>
+                                        <td data-label="Extres">+150€ Documentació</td>
+                                        <td data-label="Contacte">
+                                            <a href="contacte.html">Pressupost</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td data-label="Nom">Servei de Finançament</td>
+                                        <td data-label="Preu Base">100€</td>
+                                        <td data-label="Extres">Variable</td>
+                                        <td data-label="Contacte">
+                                            <a href="contacte.html">Assessorament</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
                 <!-- Fi de la taula -->
 
             </section>

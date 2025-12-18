@@ -291,6 +291,53 @@ aside {
     color: #ff416c;
     font-weight: bold;
 }
+/* Contenidor responsive */
+.taula-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* ===== MODE MÒBIL ===== */
+@media (max-width: 768px) {
+
+    .taula-preus thead {
+        display: none;
+    }
+
+    .taula-preus,
+    .taula-preus tbody,
+    .taula-preus tr,
+    .taula-preus td {
+        display: block;
+        width: 100%;
+    }
+
+    .taula-preus tr {
+        margin-bottom: 20px;
+        border: 2px solid #00bfff;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #0f0f2a;
+    }
+
+    .taula-preus td {
+        text-align: left;
+        padding: 10px;
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .taula-preus td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: bold;
+        color: #00bfff;
+        text-transform: uppercase;
+    }
+}
 
 
 
