@@ -3,7 +3,6 @@
 /* ==================================================== */
 html, body {
     width: 100%;
-    max-width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -42,13 +41,39 @@ a:hover {
 }
 
 /* ==================================================== */
-/* 2. Contenidor Principal */
+/* 2. Contenidor Principal (Mobile-first con flex) */
 /* ==================================================== */
 .flex-container {
+    display: flex;
+    flex-direction: column; /* Móvil: apilado */
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #0f0f2a;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.flex-container main,
+.flex-container aside {
+    width: 100%;
+}
+
+/* Escritorio: aside a la izquierda, main a la derecha */
+@media (min-width: 768px) {
+    .flex-container {
+        flex-direction: row;
+    }
+
+    .flex-container aside {
+        flex: 1;
+        order: 1;
+        margin: 0;
+    }
+
+    .flex-container main {
+        flex: 3;
+        order: 2;
+        margin: 0;
+    }
 }
 
 /* ==================================================== */
@@ -109,8 +134,16 @@ a:hover {
     color: #1a1a2e;
 }
 
+/* Escritorio: menú horizontal */
+@media (min-width: 768px) {
+    .nav-class ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
 /* ==================================================== */
-/* 5. Main i Aside */
+/* 5. Main y Aside */
 /* ==================================================== */
 main {
     padding: 20px;
@@ -209,7 +242,7 @@ img, iframe, table {
 }
 
 /* ==================================================== */
-/* 9. Cookie Banner (corregit) */
+/* 9. Cookie Banner */
 /* ==================================================== */
 .cookie-banner {
     position: fixed;
@@ -229,23 +262,5 @@ img, iframe, table {
         flex-direction: column;
         gap: 10px;
         text-align: center;
-    }
-}
-
-/* ==================================================== */
-/* 10. Desktop layout */
-/* ==================================================== */
-@media (min-width: 768px) {
-
-    .nav-class ul {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .flex-container {
-        display: grid;
-        grid-template-columns: minmax(700px, 3fr) 1fr;
-        gap: 30px;
-        padding: 0 20px;
     }
 }
