@@ -1,281 +1,167 @@
 /* ==================================================== */
-/* 1. Estils Generals i Resets */
+/* 0. Reset global anti-scroll */
 /* ==================================================== */
-body {
-    /* Font: una opció moderna i 'gaming' */
-    font-family: 'Rajdhani', Arial, sans-serif;
+html, body {
+    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #1a1a2e; /* Fons fosc */
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* ==================================================== */
+/* 1. Estils Generals */
+/* ==================================================== */
+body {
+    font-family: 'Rajdhani', Arial, sans-serif;
+    background-color: #1a1a2e;
     color: #e4e4e4;
-    line-height: 1.7; /* Lleuger augment per a millor lectura */
+    line-height: 1.7;
 }
 
 h1, h2, h3 {
-    color: #ff416c; /* Color de detall primari */
+    color: #ff416c;
     margin-top: 0;
-    text-transform: uppercase; /* Toque "gaming" */
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 a {
     color: #00bfff;
     text-decoration: none;
-    transition: color 0.3s, text-shadow 0.3s;
 }
 
 a:hover {
     color: #4ddbff;
-    text-shadow: 0 0 5px #00bfff; /* Efecte 'neó' subtil */
+    text-shadow: 0 0 5px #00bfff;
 }
 
-a:focus { /* Millora d'accessibilitat */
-    outline: 2px solid #ff416c;
-    outline-offset: 2px;
-}
-
-/* El contenidor global de layout (només per a main i aside) */
+/* ==================================================== */
+/* 2. Contenidor Principal */
+/* ==================================================== */
 .flex-container {
     max-width: 1200px;
     margin: 0 auto;
     background-color: #0f0f2a;
-    min-height: 100vh;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Ombra de bloc, dona profunditat */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
 }
 
 /* ==================================================== */
-/* 2. Capçalera del Document (Header) */
+/* 3. Header */
 /* ==================================================== */
 .header-class {
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    background-image: url('../img/logo_novagami_background.png'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    
-    min-height: 250px; /* Incrementat lleugerament per impacte */
+    position: relative;
+    min-height: 250px;
     padding: 20px;
-    position: relative; 
-    z-index: 1; 
-    border-bottom: 5px solid #ff416c; /* Més gruixut */
+    text-align: center;
+    background-image: url('../img/logo_novagami_background.png');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid #ff416c;
 }
 
-/* Overlay Semitransparent (Color més fosc i opacitat) */
 .header-class::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Opacitat augmentada */
-    z-index: -1;
+    inset: 0;
+    background-color: rgba(0,0,0,0.75);
 }
 
 .header-class h1 {
+    position: relative;
     color: white;
-    text-shadow: 0 0 10px #ff416c, 0 0 20px rgba(255, 65, 108, 0.5); /* Efecte Neó H1 */
     font-size: 3em;
-    z-index: 2;
-    margin: 0;
-    padding: 10px 0;
+    text-shadow: 0 0 10px #ff416c;
 }
 
 /* ==================================================== */
-/* 3. Navegació del Document (Nav) - Mobile-First */
+/* 4. Navegació */
 /* ==================================================== */
 .nav-class {
-    background-color: #0d0d24; /* Més fosc que el fons del contenidor */
-    padding: 0; /* Ajustat a 0 per controlar el padding a l'enllaç */
-    width: 100%; 
-    box-sizing: border-box; 
-    border-bottom: 2px solid #00bfff; /* Detall neó a la part inferior */
+    background-color: #0d0d24;
+    border-bottom: 2px solid #00bfff;
 }
 
 .nav-class ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0 auto;
-    display: flex; 
-    flex-direction: column; 
-    text-align: center;
-    max-width: 1200px; 
+    max-width: 1200px;
 }
 
-.nav-class li a {
+.nav-class a {
     display: block;
-    padding: 15px 10px; /* Més espai vertical */
+    padding: 15px;
     color: white;
     font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
-.nav-class li a:hover,
-.nav-class li a:focus { /* Afegit focus */
+.nav-class a:hover {
     background-color: #ff416c;
-    color: #1a1a2e; /* Text fosc a l'hover per contrast */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #1a1a2e;
 }
 
 /* ==================================================== */
-/* 4. Contingut Principal (Main) i Barra Lateral (Aside) */
+/* 5. Main i Aside */
 /* ==================================================== */
 main {
     padding: 20px;
-    box-sizing: border-box;
 }
 
 main section {
     margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 2px dashed #3a3a5e; /* Línia més gruixuda */
+    border-bottom: 2px dashed #3a3a5e;
 }
 
 aside {
-    padding: 20px; /* Més padding */
+    padding: 20px;
     background-color: #2a2a4a;
     border-left: 5px solid #00bfff;
-    margin: 20px; 
-    box-sizing: border-box;
-    border-radius: 5px; /* Cantonades arrodonides per a la barra lateral */
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3); /* Ombra amb color neó de detall */
-}
-
-/* Estils per a imatges */
-.key-art-img, .small-img {
-    max-width: 100%; 
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border: 2px solid #ff416c; /* Marc de color de detall */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Ombra més pronunciada */
-}
-
-/* ESTILS ESPECÍFICS per a .small-img (Centrat) */
-.small-img {
-    max-width: 300px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 5px #00bfff; /* Ombra fosca + toc neó */
-}
-
-/* ===============================================================*/
-/* 4.6. Estils Específics per a Vídeos (IFRAME/FIGURE)*/
-/* ===============================================================*/
-
-/* Estil del contenidor FIGURE (Per al vídeo + llegenda) */
-.service-item figure {
-    margin: 20px 0;
-    padding: 0;
-    text-align: center; /* Centra el vídeo si no ocupa el 100% */
-}
-
-/* Regla CLAU: Assegura la mida de l'iframe en escriptori */
-.service-item figure iframe {
-    /* Mida màxima en escriptori */
-    width: 100%; 
-    max-width: 782px; 
-    height: 440px; /* Alçada per a resolucions grans */
-    
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-/* ... (El teu codi CSS anterior de les seccions 1, 2, 3, 4.x) ... */
-
-/* ==================================================== */
-/* 4.7. Estils del Formulari de Contacte */
-/* ==================================================== */
-
-/* Layout per a Prefix i Telèfon */
-.phone-group {
-    display: flex;
-    gap: 10px; /* Espai entre el selector i el camp de text */
-    margin-bottom: 15px;
-}
-
-/* El selector de prefix té una amplada fixa */
-.phone-group .phone-prefix {
-    flex-basis: 120px; 
-    flex-shrink: 0;
-}
-
-/* El camp de número de telèfon agafa la resta de l'espai */
-.phone-group .phone-number {
-    flex-grow: 1;
-}
-
-/* Estil per a tots els camps del formulari (Input, Select, Textarea) */
-#formulari-contacte input[type="text"],
-#formulari-contacte input[type="email"],
-#formulari-contacte input[type="tel"],
-#formulari-contacte select, /* <-- S'APLICA AL SELECTOR DE PREFIX */
-#formulari-contacte textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #3a3a5e;
-    background-color: #1a1a2e;
-    color: #e4e4e4;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
-/* Redefinim el marge inferior només per a elements que no estiguin al phone-group */
-.form-group:not(.phone-group) input, 
-.form-group:not(.phone-group) select, 
-.form-group:not(.phone-group) textarea {
-    margin-bottom: 15px;
-}
-
-/* ... (La resta de fieldset i botons) ... */
-
-#formulari-contacte fieldset {
-    border: 1px solid #ff416c;
-    padding: 15px;
-    margin-bottom: 25px;
     border-radius: 5px;
 }
 
-#formulari-contacte legend {
-    color: #00bfff;
-    font-weight: bold;
-    padding: 0 10px;
+/* ==================================================== */
+/* 6. Imatges i vídeos */
+/* ==================================================== */
+img, iframe, table {
+    max-width: 100%;
+    height: auto;
 }
 
-#formulari-contacte button[type="submit"] {
-    background-color: #ff416c;
-    color: white;
-    padding: 12px 20px;
+.service-item figure {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.service-item iframe {
+    width: 100%;
+    max-width: 782px;
+    height: 440px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-    margin-top: 10px;
 }
 
-#formulari-contacte button[type="submit"]:hover {
-    background-color: #e62c52;
+/* ==================================================== */
+/* 7. Taula Responsive */
+/* ==================================================== */
+.taula-responsive {
+    width: 100%;
+    overflow-x: auto;
 }
-/* ==================================================== */
-/* 4.8. Estils per a la Taula de Preus */
-/* ==================================================== */
+
 .taula-preus {
     width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
-    text-align: center;
-    background-color: #1a1a2e;
-    border: 2px solid #00bfff;
 }
 
-.taula-preus th, 
+.taula-preus th,
 .taula-preus td {
     padding: 12px;
     border: 1px solid #3a3a5e;
@@ -284,204 +170,82 @@ aside {
 .taula-preus th {
     background-color: #0d0d24;
     color: #00bfff;
-    text-transform: uppercase;
 }
 
-.taula-preus td a {
-    color: #ff416c;
-    font-weight: bold;
-}
-/* Contenidor responsive */
-.taula-responsive {
-    width: 100%;
-    overflow-x: auto;
-}
-
-/* ===== MODE MÒBIL ===== */
 @media (max-width: 768px) {
-
     .taula-preus thead {
         display: none;
     }
 
-    .taula-preus,
-    .taula-preus tbody,
     .taula-preus tr,
     .taula-preus td {
         display: block;
         width: 100%;
     }
 
-    .taula-preus tr {
-        margin-bottom: 20px;
-        border: 2px solid #00bfff;
-        border-radius: 8px;
-        padding: 10px;
-        background-color: #0f0f2a;
-    }
-
     .taula-preus td {
-        text-align: left;
-        padding: 10px;
-        border: none;
-        position: relative;
         padding-left: 50%;
+        position: relative;
     }
 
     .taula-preus td::before {
         content: attr(data-label);
         position: absolute;
         left: 10px;
-        top: 10px;
         font-weight: bold;
         color: #00bfff;
-        text-transform: uppercase;
     }
 }
 
-
-
 /* ==================================================== */
-/* 5. Peu de Pàgina del Document (Footer) */
+/* 8. Footer */
 /* ==================================================== */
 .main-footer {
-    background-color: #0a0a1a; /* Molt fosc */
+    background-color: #0a0a1a;
     color: #999;
     text-align: center;
     padding: 20px;
-    width: 100%; 
     border-top: 5px solid #ff416c;
 }
 
-.main-footer a {
-    color: #ff416c;
-}
-
 /* ==================================================== */
-/* 6. Media Query per a Responsive (Escriptori) */
+/* 9. Cookie Banner (corregit) */
 /* ==================================================== */
-@media (min-width: 768px) {
-    
-    /* Navegació en fila */
-    .nav-class ul {
-        flex-direction: row;
-        justify-content: space-around; /* Distribució més uniforme */
-    }
-
-    .nav-class li {
-        margin: 0; /* Eliminem el marge lateral */
-    }
-    
-    /* Disposició del contenidor principal (sols main i aside) amb Grid */
-    .flex-container {
-        display: grid;
-        /* Utilitzem una definició Grid més explícita i moderna */
-        grid-template-areas: 
-            "main aside";
-        grid-template-columns: minmax(700px, 3fr) 1fr; /* Més control sobre el main */
-        gap: 30px;
-        padding: 0 30px; 
-    }
-
-    main {
-        grid-area: main;
-        padding: 30px 0 50px 0; /* Més padding inferior */
-    }
-
-    aside {
-        grid-area: aside;
-        margin: 30px 0 50px 0; 
-        height: fit-content;
-    }
-}
-
-/* ==================================================== */
-/* 7. Media Query per a Responsive (MÒBILS - Mida Vídeo) */
-/* Aquesta regla s'aplica quan l'amplada de la pantalla és petita (menys de 782px) */
-/* ==================================================== */
-@media (max-width: 782px) {
-    /* Solució per mantenir la proporció 16:9 en dispositius estrets (Padding Hack) */
-    .service-item figure {
-        position: relative;
-        padding-bottom: 56.25%; /* 9 / 16 = 0.5625 (proporció 16:9) */
-        height: 0;
-        overflow: hidden;
-    }
-    
-    .service-item figure iframe {
-        /* L'iframe ocupa tot el contenidor amb proporció */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-/* ==================================================== */
-/* 8. Barra de Cookies (Projecte Acadèmic) */
-/* ==================================================== */
-
 .cookie-banner {
     position: fixed;
-    bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    bottom: 0;
     background-color: #0d0d24;
-    color: #e4e4e4;
-    padding: 15px 20px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 3px solid #00bfff;
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.7);
     z-index: 9999;
-    font-size: 0.9rem;
 }
 
-.cookie-banner p {
-    margin: 0;
-    max-width: 70%;
-}
-
-.cookie-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.cookie-buttons button {
-    padding: 8px 14px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.cookie-buttons button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
-}
-
-#accept-cookies {
-    background-color: #ff416c;
-    color: #fff;
-}
-
-#reject-cookies {
-    background-color: #3a3a5e;
-    color: #fff;
-}
-
-/* Responsive per a mòbil */
 @media (max-width: 600px) {
     .cookie-banner {
         flex-direction: column;
-        text-align: center;
         gap: 10px;
+        text-align: center;
+    }
+}
+
+/* ==================================================== */
+/* 10. Desktop layout */
+/* ==================================================== */
+@media (min-width: 768px) {
+
+    .nav-class ul {
+        flex-direction: row;
+        justify-content: space-around;
     }
 
-    .cookie-banner p {
-        max-width: 100%;
+    .flex-container {
+        display: grid;
+        grid-template-columns: minmax(700px, 3fr) 1fr;
+        gap: 30px;
+        padding: 0 20px;
     }
 }
