@@ -2,18 +2,16 @@
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo_novagami_background.ico" />
+    <link rel="icon" type="image/x-icon" href="assets/img/logo_novagami_background.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Contacte - NovaGami Studios</title>
-    <meta name="description" content="Formulari de contacte i dades de l'estudi.">
-    <meta name="description" content="Contacta amb NovaGami Studios mitjançant el nostre formulari. Consultes sobre videojocs, serveis o col·laboracions." />
-    <meta name="keywords" content="contacte estudi videojocs, formulari contacte, suport videojocs, NovaGami Studios" />
-    <meta name="author" content="NovaGami Studios" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="ca" />
-    <meta name="theme-color" content="#1a1a2e" />
-
+    <meta name="description" content="Contacta amb NovaGami Studios mitjançant el nostre formulari. Consultes sobre videojocs, serveis o col·laboracions.">
+    <meta name="keywords" content="contacte estudi videojocs, formulari contacte, suport videojocs, NovaGami Studios">
+    <meta name="author" content="NovaGami Studios">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="ca">
+    <meta name="theme-color" content="#1a1a2e">
 </head>
 <body>
     
@@ -36,14 +34,10 @@
             <section id="formulari-contacte">
                 <h2>Contacta'ns</h2>
                 <p>Si us plau, omple el formulari. Tots els camps marcats amb un asterisc (*) són obligatoris.</p>
-                <!-- Formulario de contacto con validación HTML5 -->
 
                 <form action="#" method="POST"> 
-                    <!-- Datos personales del usuario -->
-
                     <fieldset>
                         <legend>La teva Informació *</legend>
-                        
                         <div class="form-group">
                             <label for="nom">Nom *:</label>
                             <input type="text" id="nom" name="nom" required placeholder="El teu nom">
@@ -58,14 +52,15 @@
                             <div class="phone-prefix">
                                 <label for="prefix">Prefix *:</label>
                                 <select id="prefix" name="prefix" required>
-                                    <option value="+34" selected>+34 (ES)</option>
+                                    <option value="" disabled selected>— Selecciona un prefix —</option>
+                                    <option value="+34">+34 (ES)</option>
                                     <option value="+1">+1 (USA/CA)</option>
                                     <option value="+44">+44 (UK)</option>
                                     <option value="+33">+33 (FR)</option>
                                     <option value="+49">+49 (DE)</option>
                                     <option value="+27">+27 (ZA)</option>
                                     <option value="+86">+86 (CN)</option>
-                                    </select>
+                                </select>
                             </div>
                             
                             <div class="phone-number">
@@ -79,7 +74,6 @@
                             <input type="email" id="email" name="email" required placeholder="email@exemple.com">
                         </div>
                     </fieldset>
-                    <!-- Selección de tema -->
 
                     <fieldset>
                         <legend>Tema de la Consulta *</legend>
@@ -87,17 +81,14 @@
                         <select id="tema-cataleg" name="tema" required>
                             <option value="" disabled selected>— Selecciona una opció —</option> 
                             <option value="altres">Consulta general / Altres temes</option>
-                            
                             <optgroup label="Videojocs">
                                 <option value="joc-neverway">Neverway</option>
                                 <option value="joc-ultrakill">Ultrakill</option>
                             </optgroup>
-
                             <optgroup label="Ofertes de merchandising">
-                                <option value="joc-neverway">Neverway</option>
-                                <option value="joc-ultrakill">Ultrakill</option>
+                                <option value="merch-neverway">Neverway</option>
+                                <option value="merch-ultrakill">Ultrakill</option>
                             </optgroup>
-                            
                             <optgroup label="Serveis">
                                 <option value="dev-servei">Servei de Desenvolupament</option>
                                 <option value="prest-servei">Servei de Finançament (Préstec)</option>
@@ -111,7 +102,7 @@
                         <label for="missatge">Missatge (opcional):</label>
                         <textarea id="missatge" name="missatge" rows="6" placeholder="Detalla la teva consulta aquí..."></textarea>
                     </fieldset>
-<!-- Consentimiento RGPD obligatorio -->
+
                     <fieldset>
                         <div>
                             <input type="checkbox" id="lopd" name="accepta_lopd" required>
@@ -120,7 +111,6 @@
                         
                         <button type="submit">Enviar Sol·licitud</button>
                     </fieldset>
-                    
                 </form>
             </section>
         </main>
